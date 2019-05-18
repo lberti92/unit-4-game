@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Crystal Collector</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center bg-primary text-white">
+      <h1>Crystal Collector</h1>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Instructions</div>
+      <div class="card-body">
+        <p>You will be given a random number at the start of the game. There are four crystals below. By clicking on a
+          crystal you will add a specific amount of points to your total score. You win the game by matching your total
+          score to random number, you lose the game if your total score goes above the random number. The value of each
+          crystal is hidden from you until you click on it. Each time when the game starts, the game will change the
+          values of each crystal.</p>
+      </div>
+    </div>
+
+    <div class="card-deck">
+      <div class="card border-dark mb-3 mt-3" style="max-width: 18rem;">
+        <div class="card-header">Target Score</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+        </div>
+      </div>
+      <div class="card border-dark mb-3 mt-3" style="max-width: 18rem;">
+        <div class="card-header">Your Score</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+        </div>
+      </div>
+      <div class="card border-dark mb-6 mt-3" style="max-width: 36rem;">
+        <div class="card-header">Crystal Selection</div>
+        <div class="card-body text-dark">
+        </div>
+      </div>
+    </div>
+
+    <div class="card-deck">
+      <div class="card border-dark mb-6 mt-6" style="max-width: 36rem;">
+        <div class="card-header">Win Count</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+        </div>
+      </div>
+      <div class="card border-dark mb-6 mt-3" style="max-width: 36rem;">
+        <div class="card-header">Loss Count</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+        </div>
+      </div>
+    </div>
+
+    <div id="crystals">
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+
+</body>
+
+</html>
