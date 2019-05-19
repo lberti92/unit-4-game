@@ -36,7 +36,7 @@ $("#number-to-guess").text(targetScore);
 // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
 // We begin by expanding our array to include four options.
-var numberOptions = [2,5,6,9];
+var numberOptions = [2, 5, 6, 9];
 
 // Next we create a for loop to create crystals for every numberOption.
 for (var i = 0; i < numberOptions.length; i++) {
@@ -57,40 +57,39 @@ for (var i = 0; i < numberOptions.length; i++) {
 
   // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
   $("#crystals").append(imageCrystal);
- }
+}
 
 // This time, our click event applies to every single crystal on the page. Not just one.
 $(".crystal-image").on("click", function () {
-
-  // Determining the crystal's value requires us to extract the value from the data attribute.
-  // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-  // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-  // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
   var crystalValue = ($(this).attr("data-crystalvalue"));
   crystalValue = parseInt(crystalValue);
 
   yourScore += crystalValue;
-  $("#your-score").text(yourScore);
-  // All of the same game win-lose logic applies. So the rest remains unchanged.
- 
 
   if (yourScore === targetScore) {
     wins++;
-    $("#wins").text(wins);
     resetVariables();
   }
   else if (yourScore > targetScore) {
     losses++;
-    $("#losses").text(losses);
     resetVariables();
   }
 
- function resetVariables () {
-  yourScore = 0;
- }
+  $("#your-score").text(yourScore);
+  $("#wins").text(wins);
+  $("#losses").text(losses);
+
+  function resetVariables() {
+    yourScore = 0;
+    targetScore = randomNumber(19, 120);
+    console.log("targetScore " + targetScore)
+  }
+  $("#number-to-guess").text(targetScore);
+
 });
 
+// $("#form")[0].reset();
 
 // var c1 = RandomNumber(1, 12);
 // var c2 = RandomNumber(1, 12);
@@ -148,7 +147,7 @@ $(".crystal-image").on("click", function () {
 
 // for (var i = 0; i < 4; i++) {
 //   var count = 0;
- 
+
 //   for (var j = 0; j < numberOptions.length; j++) {
 //       count++;
 //   }
