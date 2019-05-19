@@ -1,25 +1,5 @@
 // //Global Variables:  wins, losses, target score, your score
 
-// var yourScore = 0;
-
-
-// var c1 = RandomNumber(1, 12);
-// var c2 = RandomNumber(1, 12);
-// var c3 = RandomNumber(1, 12);
-// var c4 = RandomNumber(1, 12);
-
-// console.log(targetScore);
-// console.log('_______________');
-// console.log(c1);
-// console.log('_______________');
-// console.log(c2)
-// console.log('_______________');
-// console.log(c3);
-// console.log('_______________');
-// console.log(c4);
-
-
-
 
 //array of crystal objects (to loop through)
 
@@ -45,31 +25,13 @@
 
 var wins = 0;
 var losses = 0;
-var targetScore = RandomNumber(19, 120);
+var targetScore = randomNumber(19, 120);
+var yourScore = 0;
 
-function RandomNumber(min, max) {
+function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-
 $("#number-to-guess").text(targetScore);
-
-var crystalOptions = []
-
-// var c1 = RandomNumber(1, 12);
-// var c2 = RandomNumber(1, 12);
-// var c3 = RandomNumber(1, 12);
-// var c4 = RandomNumber(1, 12);
-
-// console.log('_______________');
-// console.log(c1);
-// console.log('_______________');
-// console.log(c2)
-// console.log('_______________');
-// console.log(c3);
-// console.log('_______________');
-// console.log(c4);
-
-var counter = 0;
 
 // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
@@ -95,7 +57,7 @@ for (var i = 0; i < numberOptions.length; i++) {
 
   // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
   $("#crystals").append(imageCrystal);
-}
+ }
 
 // This time, our click event applies to every single crystal on the page. Not just one.
 $(".crystal-image").on("click", function () {
@@ -107,23 +69,88 @@ $(".crystal-image").on("click", function () {
 
   var crystalValue = ($(this).attr("data-crystalvalue"));
   crystalValue = parseInt(crystalValue);
-  // We then add the crystalValue to the user's "counter" which is a global variable.
-  // Every click, from every crystal adds to the global counter.
-  counter += crystalValue;
 
+  yourScore += crystalValue;
+  $("#your-score").text(yourScore);
   // All of the same game win-lose logic applies. So the rest remains unchanged.
-  alert("New score: " + counter);
+ 
 
-  if (counter === targetScore) {
+  if (yourScore === targetScore) {
     wins++;
-    // $("#wins").text(targetScore);
-   }
-  else if (counter > targetScore) {
+    $("#wins").text(wins);
+    resetVariables();
+  }
+  else if (yourScore > targetScore) {
     losses++;
-    // $("#losses").text(targetScore);
+    $("#losses").text(losses);
+    resetVariables();
   }
 
-  // function resetVariables ()
-  // yourScore = 0;
-
+ function resetVariables () {
+  yourScore = 0;
+ }
 });
+
+
+// var c1 = RandomNumber(1, 12);
+// var c2 = RandomNumber(1, 12);
+// var c3 = RandomNumber(1, 12);
+// var c4 = RandomNumber(1, 12);
+
+// console.log('_______________');
+// console.log(c1);
+// console.log('_______________');
+// console.log(c2)
+// console.log('_______________');
+// console.log(c3);
+// console.log('_______________');
+// console.log(c4);
+
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+// function generateRandomNumb(min, max) {
+//     return Math.floor(Math.random() * (max - min) + min);
+// }
+
+// We begin by expanding our array to include four options.
+// var numberOptions = [2, 5, 6, 9];
+
+// Now for the hard part. Creating multiple crystals each with their own unique number value.
+
+// var numbersOptions = {};
+
+// while (Object.keys(numbersOptions).length < 3) {
+//   var num = Math.floor(Math.random() * 20) + 1;
+
+//   if (numberOptions[num] != "undefined") {
+//     numbersOptions[num] = num;
+//   }
+// }
+
+// console.log(Object.keys(numbers));
+
+// for(var i = 0; i < 3; i++) {
+//   var numberIsInArray = false;
+//   var rand = randomNumber(1, 21);
+//   for(var j = 0; j < numberOptions.length; j++){
+//       if(rand === numberOptions[j]) {
+//           numberIsInArray = true;
+//           i--;
+//       }
+//       console.log(numberOptions)
+//   }
+//   if(!numberIsInArray){
+//      $("#crystals").push(rand);
+//   }
+// var counter = 0;
+// var numberOptions = randomNumber(1, 21);
+
+// for (var i = 0; i < 4; i++) {
+//   var count = 0;
+ 
+//   for (var j = 0; j < numberOptions.length; j++) {
+//       count++;
+//   }
+//   console.log(count);
+// }
