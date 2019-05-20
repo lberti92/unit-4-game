@@ -12,10 +12,12 @@ function randomNumber(min, max) {
 randomNumber(19, 120);
 
 var numberOptions = [];
+function numbersGenerated () {
 for (var i = 0; i < 4; i++) {
   numberOptions.push(Math.round(Math.random() * 12))
 }
-console.log("numberOptions" + numberOptions)
+}
+numbersGenerated()
 
 for (var i = 0; i < numberOptions.length; i++) {
   var fourCrystals = ["assets/images/Heart.jpg", "assets/images/Lotus.jpg", "assets/images/snowflake.jpg", "assets/images/rose.jfif"];
@@ -50,6 +52,6 @@ $(".crystal-image").on("click", function () {
     yourScore = 0;
     randomNumber(19, 120);
     numberOptions = [];
-    console.log("reset numberOptions" + numberOptions)
-  }
+    numbersGenerated ();
+   }
 });
